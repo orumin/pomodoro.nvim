@@ -1,5 +1,6 @@
 # pomodoro.nvim
 A Neovim plugin written (mostly) in Lua that implements the [Pomodoro technique](https://francescocirillo.com/pages/pomodoro-technique).
+This implemenation is derived from https://github.com/wthollingsworth/pomodoro.nvim
 
 ## Features
 When a timer goes off, a menu is displayed to prompt you to take a break (or start the next pomodoro) with the option to stop the Pomodoro session.
@@ -9,7 +10,7 @@ When a timer goes off, a menu is displayed to prompt you to take a break (or sta
 When these prompts are displayed, you can also press `b` to take a break (if applicable), `p` to start the next pomodoro (if applicable), or `q` to stop the Pomodoro session.
 
 ## Requirements
-* Neovim >= 0.5.0
+* Neovim >= 0.7.0
 * [A patched font](https://www.nerdfonts.com/)
 * [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 
@@ -27,28 +28,15 @@ use {
 ## Configuration
 You can configure the length of the pomodoro, the length of a short break, the length of a long break, and the number of pomodoros that must be completed in order to take a longer break.  The values shown below are the defaults.
 
-### Lua
+### Lua (lazy.nvim)
 ```lua
-use {
-    'wthollingsworth/pomodoro.nvim',
-    requires = 'MunifTanjim/nui.nvim',
-    config = function()
-        require('pomodoro').setup({
-            time_work = 25,
-            time_break_short = 5,
-            time_break_long = 20,
-            timers_to_long_break = 4
-        })
-    end
-}
-```
-
-### Vimscript
-```VimL
-let g:pomodoro_time_work = 25
-let g:pomodoro_time_break_short = 5
-let g:pomodoro_time_break_long = 20
-let g:pomodoro_timers_to_long_break = 4
+require("lazy").setup({
+    "orumin/pomodoro.nvim",
+    lazy = true
+    dependencies = "MunifTanjim/nui.nvim",
+    cmd = { "PomodoroStart", "PomodoroStatus", "PomodoroStop" },
+    config = true
+})
 ```
 
 ## Usage
