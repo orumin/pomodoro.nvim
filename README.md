@@ -20,7 +20,7 @@ Install the plugin with your preferred package manager.
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 require("lazy").setup({
-  "orumin/pomodoro.nvim",
+  "JamesTeague/pomodoro.nvim",
   lazy = true
   dependencies = "MunifTanjim/nui.nvim",
   cmd = { "PomodoroStart", "PomodoroStatus", "PomodoroStop" },
