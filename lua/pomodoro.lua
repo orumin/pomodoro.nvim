@@ -35,12 +35,12 @@ local uv = vim.uv or vim.loop
 ---@param start integer
 ---@return string|osdate
 local function calc_time_remaining(duration, start)
-  local seconds = duration * 60 - os.difftime(os.time(), start)
-  if math.floor(seconds / 60) >= 60 then
-    return os.date('!%0H:%0M:%0S', seconds)
-  else
-    return os.date('!%0M:%0S', seconds)
-  end
+	local seconds = duration * 60 - os.difftime(os.time(), start)
+	if math.floor(seconds / 60) >= 60 then
+		return os.date("!%H:%M:%S", seconds)
+	else
+		return os.date("!%M:%S", seconds)
+	end
 end
 
 function Pomodoro:time_break()
