@@ -1,5 +1,4 @@
-local Menu = require('nui.menu')
-local event = require('nui.utils.autocmd').event
+local Menu = require("nui.menu")
 
 local ui = {}
 
@@ -29,14 +28,17 @@ function ui.pomodoro_completed_menu(pomodoro)
 	-- NOTE: This was removed because it was executing even when an item was chosen
 	-- or mapped key was pressed
 	-- menu:on(event.BufLeave, function()
+	-- 	print("You left:")
 	-- 	pomodoro:stop()
 	-- 	menu:unmount()
 	-- end, { once = true })
 	menu:map("n", "b", function()
+		print("Break:")
 		pomodoro:start_break()
 		menu:unmount()
 	end, { noremap = true })
 	menu:map("n", "q", function()
+		print("Stop:")
 		pomodoro:stop()
 		menu:unmount()
 	end, { noremap = true })
@@ -49,18 +51,20 @@ function ui.break_completed_menu(pomodoro)
 		pomodoro.opts.ui.border.text.top = "[Break Completed]"
 	end
 
-  local menu_options = {
-    keymap = pomodoro.opts.keymap,
-    lines = { Menu.item('Start pomodoro'), Menu.item('Quit') },
-    on_close = function () pomodoro:stop() end,
-    on_submit = function(item)
-      if item.text == 'Quit' then
-        pomodoro:stop()
-      else
-        pomodoro:start_pomodoro()
-      end
-    end
-  }
+	local menu_options = {
+		keymap = pomodoro.opts.keymap,
+		lines = { Menu.item("Start pomodoro"), Menu.item("Quit") },
+		on_close = function()
+			pomodoro:stop()
+		end,
+		on_submit = function(item)
+			if item.text == "Quit" then
+				pomodoro:stop()
+			else
+				pomodoro:start_pomodoro()
+			end
+		end,
+	}
 
 	local menu = Menu(popup_options, menu_options)
 	menu:mount()
