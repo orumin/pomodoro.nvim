@@ -2,15 +2,15 @@ local config = require("pomodoro.config")
 local ui = require("pomodoro.ui")
 
 ---@class Pomodoro
----@field private opts pomodoroOpts
+---@field opts pomodoroOpts
 ---@field private state "stopped" | "started" | "break"
 ---@field private timer uv_timer_t?
 ---@field private timers_completed integer
 ---@field private work_started_at integer
 ---@field private break_started_at integer
 ---@field private time_break fun(self: Pomodoro):integer
----@field private start_pomodoro fun(self: Pomodoro)
----@field private start_break fun(self: Pomodoro)
+---@field start_pomodoro fun(self: Pomodoro)
+---@field start_break fun(self: Pomodoro)
 ---@field private statusline_ fun(self: Pomodoro):string
 ---@field private start_ fun(self: Pomodoro)
 ---@field private stop_ fun(self: Pomodoro)

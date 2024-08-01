@@ -5,10 +5,10 @@ local ui = {}
 
 ---@param pomodoro Pomodoro
 function ui.pomodoro_completed_menu(pomodoro)
-  local popup_options = pomodoro.opts.ui
-  if not pomodoro.opt.ui.border.text.top then
-    pomodoro.opt.ui.border.text.top = "[Pomodoro Completed]"
-  end
+	local popup_options = pomodoro.opts.ui
+	if not pomodoro.opts.ui.border.text.top then
+		pomodoro.opts.ui.border.text.top = "[Pomodoro Completed]"
+	end
 
   local menu_options = {
     keymap = pomodoro.opts.keymap,
@@ -40,11 +40,10 @@ end
 
 ---@param pomodoro Pomodoro
 function ui.break_completed_menu(pomodoro)
-  local popup_options = pomodoro.opts.ui
-  if not pomodoro.opt.ui.border.text.top then
-    pomodoro.opt.ui.border.text.top = "[Break Completed]"
-  end
-
+	local popup_options = pomodoro.opts.ui
+	if not pomodoro.opts.ui.border.text.top then
+		pomodoro.opts.ui.border.text.top = "[Break Completed]"
+	end
 
   local menu_options = {
     keymap = pomodoro.opts.keymap,
