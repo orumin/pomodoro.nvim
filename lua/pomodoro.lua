@@ -44,11 +44,11 @@ local function calc_time_remaining(duration, start)
 end
 
 function Pomodoro:time_break()
-  if self.timers_completed == 0 then
-    return self.opts.time_break_long
-  else
-    return self.opts.time_break_short
-  end
+	if self.timers_completed == self.opts.timers_to_long_break then
+		return self.opts.time_break_long
+	else
+		return self.opts.time_break_short
+	end
 end
 
 function Pomodoro:start_pomodoro()
