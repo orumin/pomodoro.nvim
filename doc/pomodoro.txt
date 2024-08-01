@@ -22,7 +22,7 @@ Using lazy.nvim <https://github.com/folke/lazy.nvim> in lua
     {
       -- amongst your other plugins
       {
-        "orumin/pomodoro.nvim",
+        "JamesTeague/pomodoro.nvim",
         lazy = true,
         cmd = { "PomodoroStart", "PomodoroStatus", "PomodoroStop" },
         dependencies = "MunifTanjim/nui.nvim",
@@ -30,7 +30,7 @@ Using lazy.nvim <https://github.com/folke/lazy.nvim> in lua
       },
       -- or
       {
-        "orumin/pomodoro.nvim",
+        "JamesTeague/pomodoro.nvim",
         lazy = true,
         cmd = { "PomodoroStart", "PomodoroStatus", "PomodoroStop" },
         dependencies = "MunifTanjim/nui.nvim",
